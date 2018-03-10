@@ -251,3 +251,14 @@ html, body {
     color: white;
 }
 
+.bottom .step  {
+    font-family: "klavika-lighter";
+    position: fixed;
+    color: white;
+    font-size: 1.2vh;
+    height: 2vh;
+    width: 25vw;
+    left: 20vw;
+    bottom: 2.5vh;
+}
+

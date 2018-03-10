@@ -34,9 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementsByClassName("next")[0].style.display = "block"
                 document.getElementById("btn0").style.backgroundColor = "transparent"
                 document.getElementById("btn9").style.backgroundColor = "transparent"
+                document.getElementsByClassName("step")[0].style.display = "block"
+                document.getElementsByClassName("step")[0].innerHTML = "Step " + currentStep + " out of 8 on the path to digital enlightenment."
+                document.getElementsByClassName("beginning")[0].style.display = "none"
             } else if (currentStep === 0) {
+                document.getElementsByClassName("step")[0].style.display = "none"
                 handleStart()
             } else if (currentStep === 9) {
+                document.getElementsByClassName("step")[0].style.display = "none"
                 handleEnd()
             }
 
