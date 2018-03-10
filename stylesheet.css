@@ -141,7 +141,7 @@ html, body {
     height: 10vh;
     width: auto;
     background-color: white;
-    opacity: .7;
+    opacity: .8;
     position: fixed;
     right: 1vw;
     bottom: 1vh;
@@ -262,3 +262,58 @@ html, body {
     bottom: 2.5vh;
 }
 
+@media screen and (max-width: 425px) {
+    .loading {
+        width: 60vw;
+    }
+
+    .bottom .beginning {
+        font-size: 1.5vh;
+        height: 10vh;
+        width: 40vw;
+        left: 2vw;
+        bottom: 12vh;
+    }
+
+    .bottom .button-holder {
+        height: 4vh;
+        width: 80vw;
+        bottom: 3vh;
+        left: 2vw;
+    }
+    
+    .bottom .button-holder .btn {
+        width: 8vw;
+        height: 4vh;
+    }
+
+    .bottom img {
+        height: 4vh;
+        right: 2vw;
+        bottom: 3vh;
+    }
+
+    .phrase {
+        font-size: 4vh;
+    }
+
+    .bottom .step {
+        font-size: 1.5vh;
+        width: 80vw;
+        left: 4vw;
+        bottom: 10vh;
+    }
+
+    .openings {
+        font-size: 1.5vh;
+        width: 50vw;
+    }
+    
+    #phrase1, #phrase2, #phrase6, #phrase7, #phrase8 {
+        left: 10vw;
+    }
+
+    #phrase3, #phrase4, #phrase5 {
+        right: 10vw;
+    }
+}

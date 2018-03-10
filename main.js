@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 handleStart()
             } else if (currentStep === 9) {
                 document.getElementsByClassName("step")[0].style.display = "none"
+                document.getElementsByClassName("beginning")[0].style.display = "none"
                 handleEnd()
             }
 
