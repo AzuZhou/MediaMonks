@@ -24,8 +24,11 @@ html, body {
     align-items: center; 
     width: 100vw;
     height: 100vh;
-    overflow-x: scroll;
 }
+
+.container::-webkit-scrollbar {
+    display: none;
+  }
 
 @font-face {
     font-family: "klavika-bold";
@@ -75,13 +78,16 @@ html, body {
     display: none;
     background-image: url("./assets/images/background.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 1000vw;
+    background-size: cover;
+    width: 760vw;
     height: 100vh;
-    overflow-x: scroll;
     position: relative;
     z-index: 1;
 }
+
+.path::-webkit-scrollbar {
+    display: none;
+  }
 
 .holder {
     position: fixed;
@@ -181,58 +187,49 @@ html, body {
     position: fixed;
 }
 
-.phrase0 {
+#phrase0 {
     top: 2vh;
-    display: none;
 }
 
-.phrase1 {
+#phrase1 {
     top: 35vh;
-    display: none;
 }
 
-.phrase2 {
+#phrase2 {
     top: 40vh;
-    display: none;
 }
 
-.phrase3 {
+#phrase3 {
     text-align: end;
     right: 7vw;
     top: 39vh;
-    display: none;
 }
 
-.phrase4 {
+#phrase4 {
     text-align: end;
     right: 7vw;
     top: 39vh;
-    display: none;
 }
 
-.phrase5 {
+#phrase5 {
     text-align: end;
     right: 7vw;
     top: 35vh;
-    display: none;
 }
 
-.phrase6 {
+#phrase6 {
     top: 40vh;
-    display: none;
 }
 
-.phrase7 {
+#phrase7 {
     top: 40vh;
-    display: none;
 }
 
-.phrase8 {
+#phrase8 {
     top: 40vh;
-    display: none;
 }
 
-.phrase9 {
+#phrase9 {
     text-align: end;
     right: 7vw;
     top: 2vh;
@@ -253,3 +250,4 @@ html, body {
 .openings a {
     color: white;
 }
+

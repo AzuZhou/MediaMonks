@@ -11,10 +11,106 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementsByClassName("container")[0].style.display = "block"
             document.getElementsByClassName("loading")[0].style.display = "none"
             document.getElementsByClassName("path")[0].style.display = "flex"
-        }, 3500)
+        }, 4000)
 
-        // document.getElementsByClassName("prev")[0].onclick = prevSlide;
-        // document.getElementsByClassName("next")[0].onclick = nextSlide;
+        let phrases = ["WE ARE BREAKING <br> OUR VOW <br> OF SILENCE",
+            "TALENT IS GIVEN <br> TRUE SKILL IS <br> EARNED",
+            "BE FLEXIBLE TO <br> CHANGE AND <br> STURDY IN <br> CONVICTION",
+            "USE MANY SKILLS <br> YET WORK AS ONE",
+            "TO MASTER <br> ANYTHING FIND <br> INTEREST IN <br> EVERYTHING",
+            "INDIVIDUALS <br> FLOURISH <br> IF CULTURE <br> AND WISDOM <br> ARE SHARED",
+            "TRAIN FOR <br> PERFECTION BUT <br> AIM FOR MORE",
+            "TAKE PRIDE IN YOUR <br> WORK BUT DO NOT <br> SEEK PRAISE",
+            "TEMPORARY <br> SACRIFICE BRINGS <br> LASTING RESULTS",
+            "BECOME A MONK <div class='openings'> Interested in joining our monastery? <br> Check out our current openings on <a href='https://www.mediamonks.com/careers' target='_blank'>mediamonks.com/careers</a>. </div>"
+        ]
+        let currentStep = 0
+        let buttons = ["btn0", "btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9"]
 
+        let changeSlide = function () {
+
+            if (currentStep < 9 && currentStep > 0) {
+                document.getElementsByClassName("prev")[0].style.display = "block"
+                document.getElementsByClassName("next")[0].style.display = "block"
+                document.getElementById("btn0").style.backgroundColor = "transparent"
+                document.getElementById("btn9").style.backgroundColor = "transparent"
+            } else if (currentStep === 0) {
+                handleStart()
+            } else if (currentStep === 9) {
+                handleEnd()
+            }
+
+            let currentId = "phrase" + currentStep.toString()
+            let div = document.getElementsByClassName("phrase")[0]
+            div.id = currentId
+            div.innerHTML = phrases[currentStep]
+
+            changeButton()
+        }
+
+        let changeButton = function () {
+            for (let elem of buttons) {
+                if (document.getElementById(elem).style.backgroundColor === "white") {
+                    document.getElementById(elem).style.backgroundColor = "transparent"
+                }
+            }
+
+            let currentBtn = "btn" + currentStep.toString()
+            document.getElementById(currentBtn).style.backgroundColor = "white"
+        }
+
+        let value = 0
+
+        let scroll = function (direction) {
+            if (direction === "right") {
+                value = value - 80
+                document.getElementsByClassName("wrapper")[0].style.marginLeft = value.toString() + "vw"
+            } else if (direction === "left") {
+                console.log(value)
+                value = value + 80
+                document.getElementsByClassName("wrapper")[0].style.marginLeft = value.toString() + "vw"
+            }
+        }
+
+        let prevSlide = function () {
+            if (currentStep !== 0) {
+                prevStep = currentStep
+                currentStep--
+                changeSlide()
+                scroll("left")
+            }
+        }
+
+        let nextSlide = function () {
+            if (currentStep !== 9) {
+                prevStep = currentStep
+                currentStep++
+                changeSlide()
+                scroll("right")
+            }
+        }
+
+        let handleStart = function () {
+            document.getElementById("btn0").style.backgroundColor = "white"
+            document.getElementsByClassName("prev")[0].style.display = "none"
+        }
+
+        let handleEnd = function () {
+            document.getElementById("btn9").style.backgroundColor = "white"
+            document.getElementsByClassName("next")[0].style.display = "none"
+        }
+
+        if (currentStep < 1) {
+            handleStart()
+            changeSlide()
+        } else if (currentStep > 8) {
+            handleEnd()
+            changeSlide()
+        }
+
+        document.getElementsByClassName("prev")[0].onclick = prevSlide
+        document.getElementsByClassName("next")[0].onclick = nextSlide
+        document.getElementById
     })
 })
+
