@@ -1,11 +1,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    window.addEventListener('load', function () {
+    setTimeout(function () {
+        document.getElementById("phrase").innerHTML = "Patience, young Padawan..."
+    }, 2500)
 
-        setTimeout(function () {
-            document.getElementById("phrase").innerHTML = "Patience, young Padawan..."
-        }, 2500)
+    window.addEventListener('load', function () {
 
         setTimeout(function () {
             document.getElementsByClassName("container")[0].style.display = "block"
@@ -27,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
         let currentStep = 0
         let buttons = ["btn0", "btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9"]
 
+        let handleClick = function () {
+
+            let btnId = event.target.id
+            let btn = buttons.indexOf(btnId)
+
+            if (btn > currentStep) {
+                let increment = btn - currentStep
+                currentStep = currentStep + increment
+                scroll("right", increment)
+            } else if (btn < currentStep) {
+                let decrement = currentStep - btn
+                currentStep = currentStep - decrement
+                scroll("left", decrement)
+            }
+
+            changeSlide()
+        }
+
         let changeSlide = function () {
 
             if (currentStep < 9 && currentStep > 0) {
@@ -39,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementsByClassName("beginning")[0].style.display = "none"
             } else if (currentStep === 0) {
                 document.getElementsByClassName("step")[0].style.display = "none"
+                document.getElementsByClassName("beginning")[0].style.display = "block"
                 handleStart()
             } else if (currentStep === 9) {
                 document.getElementsByClassName("step")[0].style.display = "none"
@@ -66,13 +85,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let value = 0
 
-        let scroll = function (direction) {
+        let scroll = function (direction, x) {
             if (direction === "right") {
-                value = value - 80
+                value = value - (80 * x)
                 document.getElementsByClassName("wrapper")[0].style.marginLeft = value.toString() + "vw"
             } else if (direction === "left") {
-                console.log(value)
-                value = value + 80
+                value = value + (80 * x)
                 document.getElementsByClassName("wrapper")[0].style.marginLeft = value.toString() + "vw"
             }
         }
@@ -82,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevStep = currentStep
                 currentStep--
                 changeSlide()
-                scroll("left")
+                scroll("left", 1)
             }
         }
 
@@ -91,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevStep = currentStep
                 currentStep++
                 changeSlide()
-                scroll("right")
+                scroll("right", 1)
             }
         }
 
@@ -115,7 +133,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementsByClassName("prev")[0].onclick = prevSlide
         document.getElementsByClassName("next")[0].onclick = nextSlide
-        document.getElementById
+
+        document.getElementsByClassName("btn")[0].onclick = handleClick
+        document.getElementsByClassName("btn")[1].onclick = handleClick
+        document.getElementsByClassName("btn")[2].onclick = handleClick
+        document.getElementsByClassName("btn")[3].onclick = handleClick
+        document.getElementsByClassName("btn")[4].onclick = handleClick
+        document.getElementsByClassName("btn")[5].onclick = handleClick
+        document.getElementsByClassName("btn")[6].onclick = handleClick
+        document.getElementsByClassName("btn")[7].onclick = handleClick
+        document.getElementsByClassName("btn")[8].onclick = handleClick
+        document.getElementsByClassName("btn")[9].onclick = handleClick
     })
 })
 
